@@ -1,0 +1,1 @@
+{{ $otp }} is your {{ $clientName }} verification code, and the verification code is valid for one minute.
