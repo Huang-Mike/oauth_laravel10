@@ -3,9 +3,7 @@
 namespace App\Exceptions;
 
 use Throwable;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Auth\AuthenticationException;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -33,14 +31,12 @@ class Handler extends ExceptionHandler
 
     protected function unauthenticated($request, AuthenticationException $exception)
     {
-        if (!$request->expectsJson()) {
-            $middlewareArray = Route::getCurrentRoute()->middleware();
+        if ($exception->guards() == ['api']) {
+            return response()->json(['message' => 'Unauthenticated.'], 401);
+        } else if ($exception->guards() == ['auth']) {
 
-            if (in_array('auth:api', $middlewareArray)) {
-                return response()->json(['message' => 'Unauthenticated.'], Response::HTTP_UNAUTHORIZED);
-            }
-
-            return route('login');
         }
+
+        return redirect()->route('admin.login.view');
     }
 }

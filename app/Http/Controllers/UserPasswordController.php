@@ -6,18 +6,18 @@ use App\Repositories\UserPasswordRepository;
 
 class UserPasswordController extends Controller
 {
-    protected UserPasswordRepository $userPasswordCon;
+    protected UserPasswordRepository $userPasswordRepo;
 
     public function __construct (
-        UserPasswordRepository $userPasswordCon
+        UserPasswordRepository $userPasswordRepo
     )
     {
-        $this->userPasswordCon = $userPasswordCon;
+        $this->userPasswordRepo = $userPasswordRepo;
     }
 
     public function create(Array $params)
     {
-        return $this->userPasswordCon->create($params);
+        return $this->userPasswordRepo->create($params);
     }
 
 }

@@ -17,4 +17,9 @@ class ClientsRepository
     {
         return Clients::where('id', $client_id)->where('secret', $client_secret)->where('revoked', 0)->first();
     }
+
+    public function list()
+    {
+        return Clients::all();
+    }
 }

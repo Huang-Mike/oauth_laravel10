@@ -1,6 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/client-form.js": "/js/client-form.js",
+    "/css/app.css": "/css/app.css",
     "/css/client-form.css": "/css/client-form.css",
+    "/img/gear-icon.png": "/img/gear-icon.png",
     "/img/logo.png": "/img/logo.png"
 }

@@ -7,4 +7,5 @@ return [
     'min' => [
         'string' => ':attribute必須至少:min個字。',
     ],
+    'required' => ':attribute為必填。',
 ];
